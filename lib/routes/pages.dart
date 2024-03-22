@@ -1,6 +1,6 @@
-import 'package:chat/moduls/chat/binding.dart';
+import 'package:chat/moduls/chat/chat_binding.dart';
 import 'package:chat/moduls/chat/chat_view.dart';
-import 'package:chat/moduls/login/binding.dart';
+import 'package:chat/moduls/login/login_binding.dart';
 import 'package:chat/moduls/login/login_view.dart';
 import 'package:get/get.dart';
 part 'routes.dart';

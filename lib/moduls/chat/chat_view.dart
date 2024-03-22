@@ -19,12 +19,12 @@ class HomeView extends GetView<HomeController> {
                 controller.disconnect();
                 controller.clear();
               },
-              icon: Icon(Icons.exit_to_app),
+              icon: const Icon(Icons.exit_to_app),
               iconSize: 45,
-              color: Color.fromARGB(255, 246, 244, 246),
+              color: const Color.fromARGB(255, 246, 244, 246),
             )
           ],
-          title: Text('Групповой чат',
+          title: const Text('Групповой чат',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         ),
         body: Column(children: [
