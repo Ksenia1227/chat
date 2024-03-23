@@ -11,7 +11,7 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
         body: Stack(children: [
       Image(
-        image: AssetImage(
+        image: const AssetImage(
           'images/image.png',
         ),
         width: MediaQuery.of(context).size.width,
@@ -21,7 +21,7 @@ class LoginView extends GetView<LoginController> {
       Center(
           child: Container(
         height: 300,
-        width: 500,
+        width: 450,
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.7),
           borderRadius: BorderRadius.circular(20),
@@ -29,6 +29,9 @@ class LoginView extends GetView<LoginController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+           const  Icon(Icons.supervisor_account,
+                size: 70, color: Color.fromARGB(255, 89, 127, 229)),
+            // const Text("Вход", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 2, 50, 220)),),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
@@ -41,12 +44,22 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                controller.signIn();
-              },
-              child: Text('Войти'),
-            ),
+            SizedBox(height: 20,width: 20,),
+            SizedBox(
+              height: 50,
+              width: 150,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                onPressed: () {
+                  controller.signIn();
+                },
+                child: const Text(
+                  'Войти',
+                  style:
+                      TextStyle(color: Color.fromARGB(255, 60, 96, 194),fontSize: 18),
+                ),
+              ),
+            )
           ],
         ),
       ))

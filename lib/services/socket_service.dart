@@ -22,12 +22,12 @@ class SocketService extends GetxService {
     );
     _socket.onConnect((data) {
       printInfo(info: "Socket connected");
-      sendLogindMessage();
-      Get.offNamed(Routes.HOME);
+      sendLoginMessage();
+      Get.offAndToNamed(Routes.HOME);
     });
     _socket.onDisconnect((data) {
       printInfo(info: "Disconnected");
-      Get.offNamed(Routes.LOGIN);
+      Get.offAndToNamed(Routes.LOGIN);
     });
     _socket.onConnectError((data) => printInfo(info: "Connection Error"));
     _socket.onAny((event, data) {
@@ -47,7 +47,7 @@ class SocketService extends GetxService {
     _socket.disconnect();
   }
 
-  void sendLogindMessage() {
+  void sendLoginMessage() {
     _socket.emit(SocketEvent.login.name, UserService.to.username);
   }
 
