@@ -11,7 +11,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-      messages.listen((p0) async {
+    messages.listen((p0) async {
       var max = scrollController.position.maxScrollExtent;
       if (scrollController.offset + 100 >= max) {
         await Future.delayed(const Duration(microseconds: 300));
@@ -31,7 +31,7 @@ class HomeController extends GetxController {
     SocketService.to.disconnect();
   }
 
-  void clear(){
+  void clear() {
     UserService.to.clearMessage();
   }
 
