@@ -14,7 +14,7 @@ class HomeController extends GetxController {
       messages.listen((p0) async {
       var max = scrollController.position.maxScrollExtent;
       if (scrollController.offset + 100 >= max) {
-        await Future.delayed(const Duration(milliseconds: 100));
+        await Future.delayed(const Duration(microseconds: 300));
         scrollController.jumpTo(scrollController.position.maxScrollExtent);
       }
     });
