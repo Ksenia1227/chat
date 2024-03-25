@@ -21,7 +21,7 @@ class BubbleMessage extends StatelessWidget {
           decoration: BoxDecoration(
             color: itsMe
                 ? Color.fromARGB(255, 4, 144, 186)
-                : Color.fromARGB(255, 153, 153, 240),
+                : Color.fromARGB(255, 211, 234, 245),
             borderRadius: BorderRadius.circular(10),
           ),
           child: 
