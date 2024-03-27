@@ -22,7 +22,7 @@ class SocketService extends GetxService {
     );
     _socket.onConnect((data) {
       printInfo(info: "Socket connected");
-      sendLoginMessage();
+     _sendLoginMessage();
       Get.offAndToNamed(Routes.HOME);
     });
     _socket.onDisconnect((data) {
@@ -42,16 +42,17 @@ class SocketService extends GetxService {
 
   void connect() => _socket.connect();
 
-  void disconnect() {
-    sendLogoutMessage();
+  void disconnect()  {
+    _sendLogoutMessage();
+    // await Future.delayed(const Duration(seconds: 2));
     _socket.disconnect();
   }
 
-  void sendLoginMessage() {
+  void _sendLoginMessage() {
     _socket.emit(SocketEvent.login.name, UserService.to.username);
   }
 
-  void sendLogoutMessage() {
+  void _sendLogoutMessage() {
     _socket.emit(SocketEvent.logout.name);
   }
 

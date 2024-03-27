@@ -12,10 +12,14 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     messages.listen((p0) async {
-      var max = scrollController.position.maxScrollExtent;
-      if (scrollController.offset + 100 >= max) {
-        await Future.delayed(const Duration(milliseconds: 100));
-        scrollController.jumpTo(scrollController.position.maxScrollExtent);
+      if (scrollController.hasClients) {
+        var max = scrollController.position.maxScrollExtent;
+        if (scrollController.offset + 100 >= max) {
+          await Future.delayed(const Duration(milliseconds: 100));
+          if (scrollController.hasClients) {
+            scrollController.jumpTo(scrollController.position.maxScrollExtent);
+          }
+        }
       }
     });
     super.onInit();
@@ -36,4 +40,10 @@ class HomeController extends GetxController {
   }
 
   bool itsMe(String clientId) => clientId == SocketService.to.clientId;
+
+  @override
+  void onClose() {
+    scrollController.dispose();
+    super.onClose();
+  }
 }
